@@ -1,9 +1,12 @@
 "use client";
 
-import { Search, Box, Menu } from "lucide-react";
+import { useState } from "react";
+import { Search, Box, Menu, X } from "lucide-react";
 import Link from "next/link";
 
 export default function Navbar() {
+  const [showMobileMenu, setShowMobileMenu] = useState(false);
+
   return (
     <nav className="fixed top-0 left-0 right-0 z-50 bg-[#13161c]/95 backdrop-blur-sm border-b border-white/5">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -14,7 +17,9 @@ export default function Navbar() {
               <div className="w-8 h-8 bg-primary rounded-md flex items-center justify-center">
                 <Box size={20} className="text-white" />
               </div>
-              <span className="text-white font-bold text-xl hidden sm:block">Platzi</span>
+              <span className="text-white font-bold text-xl hidden sm:block">
+                Platzi
+              </span>
             </Link>
 
             {/* Search bar - desktop */}
@@ -38,18 +43,6 @@ export default function Navbar() {
                 Cursos
               </Link>
               <Link
-                href="/empresas"
-                className="text-gray-300 hover:text-white transition-colors text-sm font-medium"
-              >
-                Empresas
-              </Link>
-              <Link
-                href="/conf"
-                className="text-gray-300 hover:text-white transition-colors text-sm font-medium"
-              >
-                Conf
-              </Link>
-              <Link
                 href="/precios"
                 className="text-gray-300 hover:text-white transition-colors text-sm font-medium"
               >
@@ -57,17 +50,26 @@ export default function Navbar() {
               </Link>
             </div>
 
-            {/* Acceder Button */}
+            {/* Acceder & Registro Buttons */}
             <Link
               href="/login"
               className="px-4 py-2 rounded-lg border-2 border-primary text-primary hover:bg-primary hover:text-black transition-all text-sm font-semibold"
             >
               Acceder
             </Link>
+            <Link
+              href="/registro"
+              className="hidden sm:block px-4 py-2 rounded-lg bg-primary text-black hover:bg-primary/90 transition-all text-sm font-semibold"
+            >
+              Registrarse
+            </Link>
 
             {/* Mobile menu button */}
-            <button className="lg:hidden text-white p-2">
-              <Menu size={24} />
+            <button
+              onClick={() => setShowMobileMenu(!showMobileMenu)}
+              className="lg:hidden text-white p-2 hover:bg-white/10 rounded-lg transition-colors"
+            >
+              {showMobileMenu ? <X size={24} /> : <Menu size={24} />}
             </button>
           </div>
         </div>
@@ -83,6 +85,41 @@ export default function Navbar() {
             />
           </div>
         </div>
+
+        {/* Mobile menu dropdown */}
+        {showMobileMenu && (
+          <div className="lg:hidden absolute top-full left-0 right-0 bg-[#13161c] border-t border-white/5 shadow-xl">
+            <div className="px-4 py-6 space-y-4">
+              {/* Links */}
+              <Link
+                href="/cursos"
+                onClick={() => setShowMobileMenu(false)}
+                className="block text-gray-300 hover:text-white hover:bg-white/5 px-4 py-3 rounded-lg transition-colors text-base font-medium"
+              >
+                Cursos
+              </Link>
+              <Link
+                href="/precios"
+                onClick={() => setShowMobileMenu(false)}
+                className="block text-gray-300 hover:text-white hover:bg-white/5 px-4 py-3 rounded-lg transition-colors text-base font-medium"
+              >
+                Precios
+              </Link>
+
+              {/* Divider */}
+              <div className="border-t border-white/10 my-4"></div>
+
+              {/* Buttons */}
+              <Link
+                href="/registro"
+                onClick={() => setShowMobileMenu(false)}
+                className="block text-center px-4 py-3 rounded-lg bg-primary text-black hover:bg-primary/90 transition-all text-base font-semibold"
+              >
+                Registrarse
+              </Link>
+            </div>
+          </div>
+        )}
       </div>
     </nav>
   );

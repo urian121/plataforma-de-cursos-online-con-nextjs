@@ -1,21 +1,29 @@
-import { Home, Grid3x3, BookOpen, Settings, Bell, X } from 'lucide-react';
+import Link from "next/link";
+import { Home, Grid3x3, BookOpen, Settings, Bell, X } from "lucide-react";
 
 export default function MobileMenu({ isOpen, onClose }) {
   if (!isOpen) return null;
 
   return (
     <div className="fixed inset-0 bg-black/80 z-50 lg:hidden" onClick={onClose}>
-      <aside className="w-64 h-full bg-[#1a1a1a] border-r border-gray-800 p-6" onClick={(e) => e.stopPropagation()}>
+      <aside
+        className="w-64 h-full bg-[#1a1a1a] border-r border-gray-800 p-6"
+        onClick={(e) => e.stopPropagation()}
+      >
         {/* Header */}
         <div className="flex items-center justify-between mb-8">
-          <div className="w-10 h-10 bg-[#0ae98a] rounded-lg flex items-center justify-center cursor-pointer">
+          <Link
+            href="/"
+            onClick={onClose}
+            className="w-10 h-10 bg-[#0ae98a] rounded-lg flex items-center justify-center cursor-pointer hover:bg-[#09d47d] transition-colors"
+          >
             <div className="w-6 h-6 border-2 border-white rounded transform rotate-45"></div>
-          </div>
+          </Link>
           <button onClick={onClose} className="text-white cursor-pointer">
             <X size={24} />
           </button>
         </div>
-        
+
         {/* Navegación */}
         <nav className="flex flex-col gap-4">
           <button className="flex items-center gap-3 text-white hover:bg-white/10 p-3 rounded-lg transition-colors cursor-pointer">
@@ -43,4 +51,3 @@ export default function MobileMenu({ isOpen, onClose }) {
     </div>
   );
 }
-

@@ -1,27 +1,73 @@
 'use client';
 
-import { Play } from 'lucide-react';
-import { useState, useEffect } from 'react';
+import { Play, ThumbsUp, Reply, ChevronDown, ChevronUp } from "lucide-react";
+import { useState } from "react";
 
-export default function VideoPlayer({ 
+export default function VideoPlayer({
   videoId,
-  isPlaying, 
-  onPlayPause, 
-  currentTime, 
-  duration, 
+  isPlaying,
+  onPlayPause,
+  currentTime,
+  duration,
   formatTime,
   onProgress,
-  onDuration
+  onDuration,
 }) {
-  const [key, setKey] = useState(0);
+  const [showComments, setShowComments] = useState(false);
 
-  // Forzar recreación del iframe cuando cambia el video
-  useEffect(() => {
-    if (videoId) {
-      console.log('Cambiando a video:', videoId);
-      setKey(prev => prev + 1);
-    }
-  }, [videoId]);
+  // Comentarios simulados
+  const comentarios = [
+    {
+      id: 1,
+      usuario: "María González",
+      avatar: "M",
+      tiempo: "Hace 2 horas",
+      pregunta:
+        "¿Podrían explicar más sobre el concepto de hooks en React? Me cuesta entender la diferencia entre useState y useEffect.",
+      likes: 12,
+      respuestas: 3,
+    },
+    {
+      id: 2,
+      usuario: "Carlos Ruiz",
+      avatar: "C",
+      tiempo: "Hace 5 horas",
+      pregunta:
+        "Excelente explicación! Me ayudó mucho a entender el tema. Gracias por el contenido.",
+      likes: 8,
+      respuestas: 1,
+    },
+    {
+      id: 3,
+      usuario: "Ana Torres",
+      avatar: "A",
+      tiempo: "Hace 1 día",
+      pregunta:
+        "¿Cuál es la mejor práctica para manejar estados globales en aplicaciones grandes?",
+      likes: 15,
+      respuestas: 5,
+    },
+    {
+      id: 4,
+      usuario: "Diego Pérez",
+      avatar: "D",
+      tiempo: "Hace 2 días",
+      pregunta:
+        "El ejemplo del minuto 5:30 no me queda claro. ¿Podrían agregar más ejemplos prácticos?",
+      likes: 6,
+      respuestas: 2,
+    },
+    {
+      id: 5,
+      usuario: "Laura Martínez",
+      avatar: "L",
+      tiempo: "Hace 3 días",
+      pregunta:
+        "Increíble clase! Me encanta la forma en que explican los conceptos complejos de manera simple.",
+      likes: 20,
+      respuestas: 0,
+    },
+  ];
 
   return (
     <div className="flex-1 flex flex-col">
@@ -29,27 +75,33 @@ export default function VideoPlayer({
       <div className="flex-1 relative overflow-hidden bg-black">
         {videoId ? (
           <iframe
-            key={key}
-            src={`https://www.youtube.com/embed/${videoId}?autoplay=${isPlaying ? 1 : 0}&controls=1&modestbranding=1&rel=0&playsinline=1`}
+            key={videoId}
+            src={`https://www.youtube.com/embed/${videoId}?autoplay=${
+              isPlaying ? 1 : 0
+            }&controls=1&modestbranding=1&rel=0&playsinline=1`}
             title="Video del curso"
             allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
             allowFullScreen
             className="w-full h-full"
-            style={{ border: 'none' }}
+            style={{ border: "none" }}
           />
         ) : (
           // Fallback: Gradiente decorativo cuando no hay video
           <div className="absolute inset-0 bg-gradient-to-br from-[#4169e1] via-[#7b68ee] to-[#da70d6]">
             {/* Patrón de puntos */}
-            <div className="absolute inset-0 opacity-30" style={{
-              backgroundImage: 'radial-gradient(circle, #4169e1 1px, transparent 1px)',
-              backgroundSize: '30px 30px'
-            }}></div>
-            
+            <div
+              className="absolute inset-0 opacity-30"
+              style={{
+                backgroundImage:
+                  "radial-gradient(circle, #4169e1 1px, transparent 1px)",
+                backgroundSize: "30px 30px",
+              }}
+            ></div>
+
             {/* Círculos decorativos */}
             <div className="absolute top-[15%] right-[25%] w-20 h-20 sm:w-32 sm:h-32 bg-[#9acd32] rounded-full blur-3xl opacity-80"></div>
             <div className="absolute top-[25%] right-[15%] w-16 h-16 sm:w-24 sm:h-24 bg-[#7cfc00] rounded-full blur-2xl opacity-70"></div>
-            
+
             {/* Mensaje */}
             <div className="absolute inset-0 flex items-center justify-center">
               <div className="text-white text-center">
@@ -57,6 +109,69 @@ export default function VideoPlayer({
                 <p className="text-lg">Selecciona una lección para comenzar</p>
               </div>
             </div>
+          </div>
+        )}
+      </div>
+
+      {/* Sección de comentarios/preguntas */}
+      <div className="bg-[#1a1a1a] border-t border-gray-800 overflow-hidden flex flex-col">
+        {/* Header con botón toggle */}
+        <button
+          onClick={() => setShowComments(!showComments)}
+          className="px-3 sm:px-4 py-3 border-b border-gray-800 flex items-center justify-between hover:bg-[#252525] transition-colors cursor-pointer"
+        >
+          <h3 className="text-white text-sm font-semibold">
+            Preguntas y comentarios ({comentarios.length})
+          </h3>
+          {showComments ? (
+            <ChevronUp size={20} className="text-gray-400" />
+          ) : (
+            <ChevronDown size={20} className="text-gray-400" />
+          )}
+        </button>
+
+        {/* Lista de comentarios scrolleable */}
+        {showComments && (
+          <div className="flex-1 overflow-y-auto p-3 sm:p-4 space-y-4 max-h-80">
+            {comentarios.map((comentario) => (
+              <div key={comentario.id} className="flex gap-3">
+                {/* Avatar */}
+                <div className="w-8 h-8 sm:w-10 sm:h-10 rounded-full bg-primary flex items-center justify-center text-black font-semibold text-sm flex-shrink-0">
+                  {comentario.avatar}
+                </div>
+
+                {/* Contenido */}
+                <div className="flex-1 min-w-0">
+                  <div className="flex items-center gap-2 mb-1">
+                    <span className="text-white text-xs sm:text-sm font-medium">
+                      {comentario.usuario}
+                    </span>
+                    <span className="text-gray-500 text-xs">
+                      {comentario.tiempo}
+                    </span>
+                  </div>
+                  <p className="text-gray-300 text-xs sm:text-sm mb-2">
+                    {comentario.pregunta}
+                  </p>
+
+                  {/* Acciones */}
+                  <div className="flex items-center gap-4">
+                    <button className="flex items-center gap-1 text-gray-400 hover:text-primary transition-colors cursor-pointer">
+                      <ThumbsUp size={14} />
+                      <span className="text-xs">{comentario.likes}</span>
+                    </button>
+                    {comentario.respuestas > 0 && (
+                      <button className="flex items-center gap-1 text-gray-400 hover:text-white transition-colors cursor-pointer">
+                        <Reply size={14} />
+                        <span className="text-xs">
+                          {comentario.respuestas} respuestas
+                        </span>
+                      </button>
+                    )}
+                  </div>
+                </div>
+              </div>
+            ))}
           </div>
         )}
       </div>
