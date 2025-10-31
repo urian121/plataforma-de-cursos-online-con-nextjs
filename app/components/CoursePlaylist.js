@@ -1,11 +1,12 @@
 import Image from 'next/image';
-import { CheckCircle2, Play, ChevronLeft, ChevronRight } from "lucide-react";
+import { CheckCircle2, Play, ChevronLeft, ChevronRight, X } from "lucide-react";
 
 export default function CoursePlaylist({
   isVisible,
   sections,
   onLessonClick,
   currentVideoId,
+  onClose,
 }) {
   return (
     <aside
@@ -19,8 +20,19 @@ export default function CoursePlaylist({
       lg:translate-x-0
     `}
     >
+      {/* Header con botón cerrar en móvil */}
+      <div className="lg:hidden flex items-center justify-between p-4 border-b border-gray-800">
+        <h2 className="text-white text-sm font-semibold">Lista de clases</h2>
+        <button
+          onClick={onClose}
+          className="text-gray-400 hover:text-white transition-colors cursor-pointer"
+        >
+          <X size={20} />
+        </button>
+      </div>
+
       {/* Lista de clases */}
-      <div className="flex-1 overflow-y-auto pb-20 pt-4">
+      <div className="flex-1 overflow-y-auto pb-20 pt-4 lg:pt-4">
         {sections.map((section, sectionIdx) => (
           <div key={sectionIdx}>
             {/* Header de sección */}

@@ -1,4 +1,4 @@
-import { Home, Grid3x3, BookOpen, Settings, Bell } from 'lucide-react';
+import { Home, Grid3x3, BookOpen, Settings, Bell, Video } from 'lucide-react';
 
 export default function Sidebar() {
   return (
@@ -20,10 +20,7 @@ export default function Sidebar() {
           <BookOpen size={24} />
         </button>
         <button className="text-gray-400 hover:text-white transition-colors cursor-pointer">
-          <svg width="24" height="24" fill="currentColor" viewBox="0 0 24 24">
-            <rect x="2" y="6" width="20" height="12" rx="2" />
-            <circle cx="12" cy="12" r="3" />
-          </svg>
+          <Video size={24} />
         </button>
         <button className="text-gray-400 hover:text-white transition-colors cursor-pointer">
           <Settings size={24} />

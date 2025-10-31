@@ -1,12 +1,13 @@
 'use client';
 
 import { useState } from 'react';
-import Sidebar from '../components/Sidebar';
-import MobileMenu from '../components/MobileMenu';
-import CourseHeader from '../components/CourseHeader';
-import VideoPlayer from '../components/VideoPlayer';
-import CoursePlaylist from '../components/CoursePlaylist';
-import { courseData } from '../data/courseData';
+import { List } from "lucide-react";
+import Sidebar from "../components/Sidebar";
+import MobileMenu from "../components/MobileMenu";
+import CourseHeader from "../components/CourseHeader";
+import VideoPlayer from "../components/VideoPlayer";
+import CoursePlaylist from "../components/CoursePlaylist";
+import { courseData } from "../data/courseData";
 
 export default function CursoPage() {
   const [isPlaying, setIsPlaying] = useState(false);
@@ -14,12 +15,14 @@ export default function CursoPage() {
   const [duration, setDuration] = useState(0);
   const [showMobileMenu, setShowMobileMenu] = useState(false);
   const [showPlaylist, setShowPlaylist] = useState(true);
-  const [currentVideoId, setCurrentVideoId] = useState(courseData.sections[0]?.lessons[0]?.videoId || null);
+  const [currentVideoId, setCurrentVideoId] = useState(
+    courseData.sections[0]?.lessons[0]?.videoId || null
+  );
 
   const formatTime = (seconds) => {
     const mins = Math.floor(seconds / 60);
     const secs = Math.floor(seconds % 60);
-    return `${mins}:${secs.toString().padStart(2, '0')}`;
+    return `${mins}:${secs.toString().padStart(2, "0")}`;
   };
 
   const handlePlayPause = () => {
@@ -38,6 +41,10 @@ export default function CursoPage() {
     setCurrentVideoId(videoId);
     setIsPlaying(true);
     setCurrentTime(0);
+    // Cerrar el playlist en móvil al seleccionar un video
+    if (window.innerWidth < 1024) {
+      setShowPlaylist(false);
+    }
   };
 
   return (
@@ -46,24 +53,34 @@ export default function CursoPage() {
       <Sidebar />
 
       {/* Menú móvil overlay */}
-      <MobileMenu 
-        isOpen={showMobileMenu} 
-        onClose={() => setShowMobileMenu(false)} 
+      <MobileMenu
+        isOpen={showMobileMenu}
+        onClose={() => setShowMobileMenu(false)}
       />
 
       {/* Contenido principal */}
       <main className="flex-1 flex flex-col overflow-hidden">
         {/* Header */}
-        <CourseHeader 
+        <CourseHeader
           courseTitle={courseData.title}
           courseSubtitle={courseData.subtitle}
           onMenuClick={() => setShowMobileMenu(true)}
-          onPlaylistToggle={() => setShowPlaylist(!showPlaylist)}
+          courseProgress={courseData.progress}
         />
 
         <div className="flex-1 flex overflow-hidden relative">
+          {/* Botón flotante para abrir playlist en móvil */}
+          {!showPlaylist && (
+            <button
+              onClick={() => setShowPlaylist(true)}
+              className="lg:hidden fixed bottom-18 right-6 z-30 bg-primary hover:bg-primary/90 text-black w-14 h-14 rounded-full shadow-lg flex items-center justify-center transition-all cursor-pointer"
+            >
+              <List size={24} />
+            </button>
+          )}
+
           {/* Video player */}
-          <VideoPlayer 
+          <VideoPlayer
             videoId={currentVideoId}
             isPlaying={isPlaying}
             onPlayPause={handlePlayPause}
@@ -75,7 +92,7 @@ export default function CursoPage() {
           />
 
           {/* Sidebar derecho - Lista de clases */}
-          <CoursePlaylist 
+          <CoursePlaylist
             isVisible={showPlaylist}
             onClose={() => setShowPlaylist(false)}
             courseProgress={courseData.progress}

@@ -1,6 +1,6 @@
 "use client";
 
-import { Search } from "lucide-react";
+import { Search, Box, Menu } from "lucide-react";
 import Link from "next/link";
 
 export default function Navbar() {
@@ -12,14 +12,7 @@ export default function Navbar() {
           <div className="flex items-center gap-6 lg:gap-8">
             <Link href="/" className="flex items-center gap-2">
               <div className="w-8 h-8 bg-primary rounded-md flex items-center justify-center">
-                <svg viewBox="0 0 40 40" className="w-5 h-5">
-                  <path
-                    d="M20 8L12 12V20L20 24L28 20V12L20 8Z"
-                    fill="white"
-                    stroke="white"
-                    strokeWidth="2"
-                  />
-                </svg>
+                <Box size={20} className="text-white" />
               </div>
               <span className="text-white font-bold text-xl hidden sm:block">Platzi</span>
             </Link>
@@ -74,19 +67,7 @@ export default function Navbar() {
 
             {/* Mobile menu button */}
             <button className="lg:hidden text-white p-2">
-              <svg
-                className="w-6 h-6"
-                fill="none"
-                stroke="currentColor"
-                viewBox="0 0 24 24"
-              >
-                <path
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                  strokeWidth={2}
-                  d="M4 6h16M4 12h16M4 18h16"
-                />
-              </svg>
+              <Menu size={24} />
             </button>
           </div>
         </div>
