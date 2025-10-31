@@ -1,201 +1,252 @@
-# 🎓 Plataforma de Cursos Online - Next.js
+# 🎓 Plataforma de Cursos Online - Estilo Platzi
 
-![Next.js](https://img.shields.io/badge/Next.js-16.0-black?style=flat-square&logo=next.js)
-![React](https://img.shields.io/badge/React-19.2-61dafb?style=flat-square&logo=react)
-![Tailwind CSS](https://img.shields.io/badge/Tailwind_CSS-4.0-38bdf8?style=flat-square&logo=tailwind-css)
-![Responsive](https://img.shields.io/badge/Responsive-100%25-success?style=flat-square)
+Edunex, Educa
 
-Una plataforma moderna y completamente responsive para visualizar cursos online con un diseño elegante y funcional.
+Plataforma moderna de cursos online construida con **Next.js 14**, **Tailwind CSS** y **PostgreSQL**. Inspirada en Platzi, diseñada para ofrecer una experiencia de aprendizaje excepcional.
+
+![Version](https://img.shields.io/badge/version-1.0.0-blue.svg)
+![Next.js](https://img.shields.io/badge/Next.js-14-black)
+![License](https://img.shields.io/badge/license-MIT-green.svg)
 
 ---
 
 ## ✨ Características
 
-- 🎨 **Diseño Moderno**: Interfaz oscura con gradientes y efectos glassmorphism
-- 📱 **100% Responsive**: Adaptado perfectamente a móviles, tablets y desktop
-- ⚡ **Alto Rendimiento**: Optimizado con Next.js 16 y React 19
-- 🎬 **Video Player**: Reproductor personalizado con controles completos
-- 📊 **Sistema de Progreso**: Tracking visual del avance en el curso
-- 🎯 **UX Optimizada**: Navegación intuitiva y fluida
-- 🔍 **SEO Friendly**: Metadata optimizada y estructura semántica
-- ♿ **Accesible**: Cumple con estándares WCAG AA
-- 🚀 **JavaScript Mínimo**: Solo lo esencial para mejor rendimiento
+### 🎯 Para Estudiantes
+- ✅ Interfaz moderna y responsiva
+- ✅ Reproductor de video integrado (YouTube, Vimeo, custom)
+- ✅ Tracking de progreso por lección
+- ✅ Sistema de comentarios y preguntas en tiempo real
+- ✅ Certificados al completar cursos
+- ✅ Lista de deseos y favoritos
+- ✅ Búsqueda avanzada de cursos
+
+### 👨‍🏫 Para Instructores
+- ✅ Panel de creación de cursos
+- ✅ Organización por secciones y lecciones
+- ✅ Gestión de videos y miniaturas
+- ✅ Responder comentarios de estudiantes
+- ✅ Analytics de progreso de estudiantes
+
+### 🛠️ Técnicas
+- ✅ Next.js 14 con App Router
+- ✅ Server Components y Client Components
+- ✅ Tailwind CSS para estilos
+- ✅ PostgreSQL con triggers y funciones
+- ✅ Sistema de autenticación JWT
+- ✅ API Routes optimizadas
+- ✅ SEO optimizado
+- ✅ Responsive Design (Mobile-first)
 
 ---
 
 ## 🖼️ Capturas de Pantalla
 
-### 🖥️ Desktop
-- Landing page con hero section y características
-- Reproductor de curso con sidebar de navegación
-- Lista de lecciones con progreso visual
+### Landing Page
+![Landing Page](https://via.placeholder.com/800x400?text=Landing+Page)
 
-### 📱 Mobile
-- Diseño adaptativo con menús overlay
-- Controles de video optimizados para touch
-- Navegación hamburger menu
+### Reproductor de Curso
+![Course Player](https://via.placeholder.com/800x400?text=Course+Player)
+
+### Panel de Estudiante
+![Dashboard](https://via.placeholder.com/800x400?text=Student+Dashboard)
 
 ---
 
-## 🛠️ Tecnologías
+## 🏗️ Estructura del Proyecto
 
-### Core
-- **Next.js 16.0.1** - Framework de React con SSR
-- **React 19.2.0** - Librería de UI
-- **Tailwind CSS 4** - Framework de CSS utility-first
-
-### Iconos
-- **Lucide React** - Librería de iconos ligera y moderna (~50KB)
-
-### Herramientas de Desarrollo
-- **ESLint** - Linter de código
-- **PostCSS** - Procesador de CSS
+```
+gestor-contenidos-nextjs/
+├── app/
+│   ├── components/         # Componentes reutilizables
+│   │   ├── Navbar.js
+│   │   ├── Hero.js
+│   │   ├── SchoolsFooter.js
+│   │   ├── Sidebar.js
+│   │   ├── CourseHeader.js
+│   │   ├── VideoPlayer.js
+│   │   ├── CoursePlaylist.js
+│   │   └── MobileMenu.js
+│   ├── cursos/            # Página del reproductor
+│   │   └── page.js
+│   ├── login/             # Autenticación
+│   │   └── page.js
+│   ├── registro/
+│   │   └── page.js
+│   ├── data/              # Datos estáticos
+│   │   └── courseData.js
+│   ├── api/               # API Routes (próximamente)
+│   ├── layout.js          # Layout principal
+│   ├── page.js            # Landing page
+│   └── globals.css        # Estilos globales
+├── public/                # Archivos estáticos
+├── lib/                   # Utilidades y configuración
+│   └── db.js              # Conexión a PostgreSQL
+├── database_schema.sql    # Schema completo de PostgreSQL
+├── DATABASE.md            # Documentación de la BD
+├── INSTALACION_DB.md      # Guía de instalación
+├── .env.local             # Variables de entorno
+├── package.json
+└── README.md
+```
 
 ---
 
 ## 🚀 Inicio Rápido
 
-### Prerequisitos
+### Prerrequisitos
 
 - Node.js 18+ 
-- npm, yarn, pnpm o bun
+- PostgreSQL 14+
+- npm o yarn
 
-### Instalación
+### 1. Clonar el repositorio
 
 ```bash
-# Clonar el repositorio
-git clone <repo-url>
+git clone <repository-url>
 cd gestor-contenidos-nextjs
+```
 
-# Instalar dependencias
+### 2. Instalar dependencias
+
+```bash
 npm install
+```
 
-# Iniciar servidor de desarrollo
+### 3. Configurar la base de datos
+
+**Ver guía completa:** [`INSTALACION_DB.md`](INSTALACION_DB.md)
+
+```bash
+# Crear la base de datos
+createdb platzi_courses
+
+# Ejecutar el schema
+psql -U postgres -d platzi_courses -f database_schema.sql
+```
+
+### 4. Configurar variables de entorno
+
+Crear archivo `.env.local`:
+
+```env
+# Database
+DATABASE_URL=postgresql://postgres:password@localhost:5432/platzi_courses
+
+# JWT
+JWT_SECRET=tu_secret_key_cambiar_en_produccion
+JWT_EXPIRES_IN=7d
+
+# App
+NEXT_PUBLIC_APP_URL=http://localhost:3000
+```
+
+### 5. Ejecutar en desarrollo
+
+```bash
 npm run dev
 ```
 
-Abre [http://localhost:3000](http://localhost:3000) en tu navegador.
+Abrir [http://localhost:3000](http://localhost:3000) en tu navegador.
 
 ---
 
-## 📂 Estructura del Proyecto
+## 📊 Base de Datos
+
+### Estructura de Tablas
+
+La plataforma utiliza PostgreSQL con 11 tablas principales:
+
+| Tabla                | Descripción                                  |
+| -------------------- | -------------------------------------------- |
+| `users`              | Usuarios (estudiantes, instructores, admins) |
+| `user_sessions`      | Sesiones y tokens de autenticación           |
+| `courses`            | Información de cursos                        |
+| `sections`           | Secciones que agrupan lecciones              |
+| `lessons`            | Lecciones/videos individuales                |
+| `enrollments`        | Inscripciones de estudiantes                 |
+| `progress`           | Progreso por lección                         |
+| `comments`           | Comentarios y preguntas                      |
+| `comment_likes`      | Likes en comentarios                         |
+| `comment_replies`    | Respuestas a comentarios                     |
+| `course_instructors` | Relación cursos-instructores                 |
+
+### Documentación Completa
+
+📖 **Ver documentación completa:** [`DATABASE.md`](DATABASE.md)
+
+### Diagrama de Relaciones
 
 ```
-gestor-contenidos-nextjs/
-├── app/
-│   ├── components/           # ✨ Componentes reutilizables
-│   │   ├── Sidebar.js
-│   │   ├── MobileMenu.js
-│   │   ├── CourseHeader.js
-│   │   ├── VideoPlayer.js
-│   │   ├── CoursePlaylist.js
-│   │   └── README.md
-│   ├── data/                 # ✨ Datos y configuraciones
-│   │   └── courseData.js
-│   ├── curso/
-│   │   └── page.js           # Página del reproductor (refactorizado)
-│   ├── globals.css           # Estilos globales
-│   ├── layout.js             # Layout principal
-│   └── page.js               # Landing page
-├── docs/
-│   ├── ARQUITECTURA_COMPONENTES.md  # ✨ Arquitectura modular
-│   ├── DISEÑO_RESPONSIVE.md         # Documentación responsive
-│   ├── ESTRUCTURA_PROYECTO.md       # Arquitectura del proyecto
-│   └── CHANGELOG.md                 # Registro de cambios
-├── public/                   # Archivos estáticos
-├── next.config.mjs           # Configuración de Next.js
-└── package.json              # Dependencias
+users
+  ├── enrollments → courses
+  │   └── progress → lessons
+  ├── comments → lessons
+  │   ├── comment_likes
+  │   └── comment_replies
+  └── user_sessions
+
+courses
+  ├── sections
+  │   └── lessons
+  └── course_instructors → users
 ```
 
 ---
 
-## 📱 Diseño Responsive
-
-### Breakpoints
-
-| Dispositivo | Ancho          | Breakpoint |
-| ----------- | -------------- | ---------- |
-| Mobile      | < 640px        | base       |
-| Tablet      | 640px - 1023px | `sm:`      |
-| Desktop     | ≥ 1024px       | `lg:`      |
-
-### Características Responsive
-
-#### Mobile (< 640px)
-- Menú hamburger
-- Sidebar overlay full-screen
-- Controles de video simplificados
-- Lista de clases en overlay
-
-#### Tablet (640px - 1023px)
-- Controles completos visibles
-- Sidebar overlay de 384px
-- Grid de 2 columnas
-
-#### Desktop (≥ 1024px)
-- Sidebars fijos (64px + 384px)
-- Todos los controles visibles
-- Grid de 3 columnas
-- Layout completo visible
-
-Ver documentación completa en [`docs/DISEÑO_RESPONSIVE.md`](docs/DISEÑO_RESPONSIVE.md)
-
----
-
-## 🎨 Sistema de Diseño
+## 🎨 Diseño y Estilos
 
 ### Paleta de Colores
 
 ```css
-/* Primarios */
-Primary Green: #0ae98a  /* ✨ Color principal: botones, enlaces, acentos */
-Purple:        #7b68ee  /* Gradientes, acentos secundarios */
-Violet:        #da70d6  /* Gradientes, acentos secundarios */
-
-/* Backgrounds */
-Dark:          #0a0a0a  /* Fondo principal */
-Dark Card:     #1a1a1a  /* Cards, sidebars */
-
-/* Decorativos */
-Green Lime:    #9acd32  /* Elementos decorativos */
-Green Bright:  #7cfc00  /* Elementos decorativos */
+/* Colores principales */
+--primary: #0ae98a;      /* Verde Platzi */
+--background: #1e2229;   /* Gris oscuro */
+--card-bg: #0a0a0a;      /* Negro para cards */
+--sidebar-bg: #13161c;   /* Sidebar y navbar */
+--text-primary: #ffffff;
+--text-secondary: #d1d5db;
 ```
 
-### Tipografía
+### Componentes Principales
 
-- **Fuentes**: Geist Sans, Geist Mono
-- **Tamaños**: xs (12px) → 5xl (48px)
-- **Responsive**: Tamaños adaptativos por breakpoint
+#### Navbar
+- Fixed top navbar con búsqueda
+- Menú móvil responsive
+- Links de autenticación
 
----
+#### Hero
+- Sección principal con gradientes
+- Buscador prominente
+- Call-to-action
 
-## 🎯 Páginas
+#### VideoPlayer
+- Reproductor de video integrado
+- Sección de comentarios toggleable
+- Tracking de progreso
 
-### `/` - Landing Page
-- Hero section con logo y título
-- Call-to-action principal
-- Grid de características:
-  - 📚 Contenido de Calidad
-  - 👥 Aprende a tu Ritmo
-  - 🏆 Certificados
-
-### `/curso` - Reproductor de Curso
-- Video player con gradiente personalizado
-- Controles completos:
-  - ▶️ Play/Pause
-  - ⏮️⏭️ Retroceder/Adelantar
-  - 🔊 Control de volumen
-  - ⚙️ Velocidad de reproducción
-  - 📝 Subtítulos
-  - ⛶ Pantalla completa
-- Sidebar de navegación (izquierda)
-- Lista de lecciones (derecha)
-- Barra de progreso
-- Input para preguntas
+#### CoursePlaylist
+- Lista de lecciones con miniaturas
+- Indicadores de progreso
+- Navegación entre lecciones
 
 ---
 
-## 📜 Scripts Disponibles
+## 🔧 Tecnologías
+
+| Categoría         | Tecnología                             |
+| ----------------- | -------------------------------------- |
+| **Frontend**      | Next.js 14, React 18                   |
+| **Estilos**       | Tailwind CSS                           |
+| **Base de Datos** | PostgreSQL 14+                         |
+| **Autenticación** | JWT, bcrypt                            |
+| **Iconos**        | Lucide React                           |
+| **Videos**        | YouTube API, Vimeo (configurable)      |
+| **ORM**           | node-postgres (pg) / Prisma (opcional) |
+
+---
+
+## 📝 Scripts Disponibles
 
 ```bash
 # Desarrollo
@@ -204,162 +255,166 @@ npm run dev
 # Build de producción
 npm run build
 
-# Servidor de producción
+# Ejecutar producción
 npm start
 
 # Linting
 npm run lint
+
+# Test de base de datos
+node test_db.js
 ```
 
 ---
 
-## 🔧 Configuración
+## 🔐 Autenticación
 
-### Next.js Config (`next.config.mjs`)
+### Niveles de Usuario
 
-```javascript
-const nextConfig = {
-  images: {
-    remotePatterns: [
-      { protocol: 'https', hostname: 'via.placeholder.com' },
-      { protocol: 'https', hostname: 'placehold.co' }
-    ],
-    unoptimized: true
-  }
-};
+| Rol            | Descripción        | Permisos                                   |
+| -------------- | ------------------ | ------------------------------------------ |
+| **student**    | Estudiante regular | Ver cursos, comentar, hacer progreso       |
+| **instructor** | Creador de cursos  | Crear/editar cursos, responder comentarios |
+| **admin**      | Administrador      | Acceso total a la plataforma               |
+
+### Flujo de Autenticación
+
+1. Usuario se registra en `/registro`
+2. Se crea usuario en tabla `users` (password hasheado con bcrypt)
+3. Usuario hace login en `/login`
+4. Se genera JWT token
+5. Token se guarda en `user_sessions`
+6. Token se incluye en headers de API requests
+
+---
+
+## 🌐 Deploy a Producción
+
+### Vercel (Recomendado)
+
+```bash
+# Instalar CLI
+npm i -g vercel
+
+# Deploy
+vercel
+
+# Configurar variables de entorno en Vercel dashboard
 ```
 
-Permite imágenes externas para placeholders y optimización.
+### Base de Datos en Producción
+
+Opciones recomendadas:
+- **Supabase** (PostgreSQL managed, tier gratuito generoso)
+- **Railway** (PostgreSQL managed, fácil setup)
+- **Vercel Postgres** (integración nativa)
+- **AWS RDS** (para producción enterprise)
+
+**Ver guía completa:** [`INSTALACION_DB.md`](INSTALACION_DB.md#-deployment-en-producción)
 
 ---
 
-## 📊 Estructura de Datos
+## 📖 Guías y Documentación
 
-### Curso
-
-```javascript
-{
-  title: "Título del curso",
-  subtitle: "Subtítulo descriptivo",
-  progress: 6, // Porcentaje
-  sections: [
-    {
-      name: "Nombre de la sección",
-      lessons: [
-        {
-          id: 1,
-          title: "Título de la lección",
-          duration: "03:52",
-          completed: true,
-          thumbnail: "/path/to/image"
-        }
-      ]
-    }
-  ]
-}
-```
+| Documento                                    | Descripción                                   |
+| -------------------------------------------- | --------------------------------------------- |
+| [`DATABASE.md`](DATABASE.md)                 | Documentación completa de la base de datos    |
+| [`INSTALACION_DB.md`](INSTALACION_DB.md)     | Guía paso a paso de instalación de PostgreSQL |
+| [`database_schema.sql`](database_schema.sql) | Script SQL ejecutable                         |
 
 ---
 
-## 🎨 Iconos con Lucide React
+## 🛣️ Roadmap
 
-```javascript
-import { Play, Pause, Volume2 } from 'lucide-react';
+### Fase 1 - MVP (Actual) ✅
+- [x] Landing page responsiva
+- [x] Sistema de autenticación básico
+- [x] Reproductor de video
+- [x] Lista de lecciones
+- [x] Tracking de progreso
+- [x] Comentarios y preguntas
 
-<Play size={24} />
-<Volume2 size={20} className="text-white" />
-```
+### Fase 2 - Próximas Features
+- [ ] Panel de administrador
+- [ ] Panel de instructor
+- [ ] Sistema de pagos (Stripe/MercadoPago)
+- [ ] Certificados generados automáticamente
+- [ ] Notificaciones en tiempo real
+- [ ] Sistema de calificaciones/reviews
+- [ ] Búsqueda avanzada con filtros
 
-**Ventajas:**
-- ⚡ Muy ligera (~50KB)
-- 🎨 Totalmente personalizable
-- 📦 Tree-shaking automático
-- 🔄 Iconos SVG optimizados
-
----
-
-## 🚀 Optimizaciones
-
-### Performance
-- ✅ JavaScript mínimo (solo estados UI)
-- ✅ CSS utility-first con Tailwind
-- ✅ Iconos SVG ligeros
-- ✅ Optimización de imágenes con Next.js
-- ✅ Tree-shaking automático
-
-### SEO
-- ✅ Metadata en español
-- ✅ Estructura HTML semántica
-- ✅ Alt texts en imágenes
-- ✅ URLs descriptivas
-
-### Accesibilidad
-- ✅ Contraste WCAG AA
-- ✅ Botones touch-friendly (44x44px)
-- ✅ Navegación por teclado
-- ✅ Focus states visibles
-
----
-
-## 📚 Documentación
-
-- 📖 [`ARQUITECTURA_COMPONENTES.md`](docs/ARQUITECTURA_COMPONENTES.md) - Arquitectura modular y componentes
-- 📖 [`DISEÑO_RESPONSIVE.md`](docs/DISEÑO_RESPONSIVE.md) - Guía completa del diseño responsive
-- 📖 [`ESTRUCTURA_PROYECTO.md`](docs/ESTRUCTURA_PROYECTO.md) - Arquitectura del proyecto
-- 📖 [`components/README.md`](app/components/README.md) - Documentación de componentes
-- 📖 [`CHANGELOG.md`](docs/CHANGELOG.md) - Registro de cambios
-
----
-
-## 🔮 Roadmap
-
-### Próximas Funcionalidades
-
-- [ ] Backend API para datos reales
-- [ ] Sistema de autenticación
-- [ ] Reproducción de video real (YouTube/Vimeo)
-- [ ] Guardado de progreso (localStorage/DB)
-- [ ] Sistema de comentarios
-- [ ] Búsqueda y filtros de cursos
-- [ ] Perfil de usuario
-- [ ] Certificados descargables
-- [ ] Notificaciones
-- [ ] PWA (Progressive Web App)
+### Fase 3 - Optimizaciones
+- [ ] Server-side rendering optimizado
+- [ ] Cache con Redis
+- [ ] CDN para videos
+- [ ] Progressive Web App (PWA)
+- [ ] Analytics avanzado
+- [ ] A/B testing
 
 ---
 
 ## 🤝 Contribuir
 
-Las contribuciones son bienvenidas. Por favor:
+Las contribuciones son bienvenidas! 
 
 1. Fork el proyecto
-2. Crea una rama para tu feature (`git checkout -b feature/AmazingFeature`)
+2. Crea tu feature branch (`git checkout -b feature/AmazingFeature`)
 3. Commit tus cambios (`git commit -m 'Add some AmazingFeature'`)
-4. Push a la rama (`git push origin feature/AmazingFeature`)
+4. Push al branch (`git push origin feature/AmazingFeature`)
 5. Abre un Pull Request
+
+---
+
+## 🐛 Reportar Bugs
+
+Si encuentras un bug, por favor abre un [issue](https://github.com/tu-usuario/tu-repo/issues) con:
+
+- Descripción del bug
+- Pasos para reproducirlo
+- Comportamiento esperado vs actual
+- Screenshots (si aplica)
+- Entorno (OS, Browser, Node version)
 
 ---
 
 ## 📄 Licencia
 
-Este proyecto está bajo la licencia MIT.
+Este proyecto está bajo la Licencia MIT. Ver archivo `LICENSE` para más detalles.
 
 ---
 
-## 🙏 Reconocimientos
+## 👨‍💻 Autor
 
-- [Next.js](https://nextjs.org/) - Framework increíble
-- [Tailwind CSS](https://tailwindcss.com/) - Estilos utility-first
-- [Lucide Icons](https://lucide.dev/) - Iconos hermosos
-- [Vercel](https://vercel.com/) - Hosting y deployment
+**Tu Nombre**
+- GitHub: [@tu-usuario](https://github.com/tu-usuario)
+- LinkedIn: [tu-perfil](https://linkedin.com/in/tu-perfil)
+- Email: tu-email@example.com
+
+---
+
+## 🙏 Agradecimientos
+
+- Diseño inspirado en [Platzi](https://platzi.com)
+- Iconos por [Lucide](https://lucide.dev)
+- Framework [Next.js](https://nextjs.org)
+- Database [PostgreSQL](https://www.postgresql.org)
 
 ---
 
 ## 📞 Soporte
 
-Para preguntas o soporte, revisa la documentación en `/docs` o abre un issue.
+¿Necesitas ayuda? 
+
+- 📧 Email: soporte@tudominio.com
+- 💬 Discord: [Tu servidor](https://discord.gg/tu-server)
+- 📖 Docs: [Documentación](https://docs.tudominio.com)
 
 ---
 
-**Hecho con ❤️ usando Next.js y Tailwind CSS**
+<div align="center">
 
+**⭐ Si te gusta este proyecto, dale una estrella! ⭐**
+
+Hecho con ❤️ y ☕
+
+</div>
