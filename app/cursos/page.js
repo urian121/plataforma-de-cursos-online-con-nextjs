@@ -48,7 +48,7 @@ export default function CursoPage() {
   };
 
   return (
-    <div className="flex h-screen bg-[#0a0a0a] overflow-hidden">
+    <div className="flex h-screen bg-surface-1 overflow-hidden">
       {/* Sidebar izquierdo - Desktop */}
       <Sidebar />
 

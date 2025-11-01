@@ -30,19 +30,19 @@ export default function CourseHeader({
     };
   }, [showUserMenu]);
   return (
-    <header className="bg-[#0a0a0a] px-3 sm:px-6 py-3 sm:py-2">
+    <header className="bg-surface-1 px-3 sm:px-6 py-3 sm:py-2">
       <div className="flex items-center justify-between gap-3">
         {/* Left side - con max-width */}
         <div className="flex items-center gap-2 sm:gap-4 min-w-0 flex-1 max-w-4xl">
           <button
             onClick={onMenuClick}
-            className="lg:hidden text-white flex-shrink-0 cursor-pointer"
+            className="lg:hidden text-white shrink-0 cursor-pointer"
           >
             <Menu size={24} />
           </button>
 
           {/* Logo */}
-          <div className="w-8 h-8 sm:w-12 sm:h-12 bg-[#0ae98a] rounded-lg flex items-center justify-center flex-shrink-0 cursor-pointer">
+          <div className="w-8 h-8 sm:w-12 sm:h-12 bg-primary rounded-lg flex items-center justify-center shrink-0 cursor-pointer">
             <div className="w-5 h-5 sm:w-7 sm:h-7 border-2 border-white rounded transform rotate-45"></div>
           </div>
 
@@ -58,7 +58,7 @@ export default function CourseHeader({
         </div>
 
         {/* Right side - Progress Circle & Avatar (siempre a la derecha) */}
-        <div className="flex items-center gap-3 sm:gap-4 flex-shrink-0">
+        <div className="flex items-center gap-3 sm:gap-4 shrink-0">
           {/* Círculo de progreso */}
           <div className="relative w-10 h-10 sm:w-12 sm:h-12">
             <svg className="transform -rotate-90 w-full h-full">
@@ -103,12 +103,12 @@ export default function CourseHeader({
 
             {/* Dropdown Menu */}
             {showUserMenu && (
-              <div className="absolute right-0 top-full mt-2 w-56 bg-[#1a1a1a] border border-gray-800 rounded-lg shadow-2xl py-2 z-50 animate-in fade-in slide-in-from-top-2 duration-200">
+              <div className="absolute right-0 top-full mt-2 w-56 bg-surface-2 border border-gray-800 rounded-lg shadow-2xl py-2 z-50 animate-in fade-in slide-in-from-top-2 duration-200">
                 {/* User Info */}
                 <div className="px-4 py-3 border-b border-gray-800">
                   <p className="text-white text-sm font-medium">Carlos Pérez</p>
                   <p className="text-gray-400 text-xs mt-0.5">
-                    student@platzi.com
+                    student@kodemy.com
                   </p>
                 </div>
 
@@ -117,7 +117,7 @@ export default function CourseHeader({
                   <Link
                     href="/perfil"
                     onClick={() => setShowUserMenu(false)}
-                    className="flex items-center gap-3 px-4 py-2.5 text-gray-300 hover:bg-[#252525] hover:text-white transition-colors cursor-pointer"
+                    className="flex items-center gap-3 px-4 py-2.5 text-gray-300 hover:bg-muted-surface hover:text-white transition-colors cursor-pointer"
                   >
                     <UserCircle size={18} />
                     <span className="text-sm">Mi perfil</span>
@@ -126,7 +126,7 @@ export default function CourseHeader({
                   <Link
                     href="/configuracion"
                     onClick={() => setShowUserMenu(false)}
-                    className="flex items-center gap-3 px-4 py-2.5 text-gray-300 hover:bg-[#252525] hover:text-white transition-colors cursor-pointer"
+                    className="flex items-center gap-3 px-4 py-2.5 text-gray-300 hover:bg-muted-surface hover:text-white transition-colors cursor-pointer"
                   >
                     <Settings size={18} />
                     <span className="text-sm">Configuración</span>
@@ -135,7 +135,7 @@ export default function CourseHeader({
                   <Link
                     href="/mis-cursos"
                     onClick={() => setShowUserMenu(false)}
-                    className="flex items-center gap-3 px-4 py-2.5 text-gray-300 hover:bg-[#252525] hover:text-white transition-colors cursor-pointer"
+                    className="flex items-center gap-3 px-4 py-2.5 text-gray-300 hover:bg-muted-surface hover:text-white transition-colors cursor-pointer"
                   >
                     <Trophy size={18} />
                     <span className="text-sm">Mis cursos</span>
@@ -152,8 +152,8 @@ export default function CourseHeader({
                     // Aquí irá la lógica de logout
                     console.log("Cerrando sesión...");
                   }}
-                  className="w-full flex items-center gap-3 px-4 py-2.5 text-red-400 hover:bg-[#252525] hover:text-red-300 transition-colors cursor-pointer"
-                >
+                  className="w-full flex items-center gap-3 px-4 py-2.5 text-red-400 hover:bg-muted-surface hover:text-red-300 transition-colors cursor-pointer"
+              >
                   <LogOut size={18} />
                   <span className="text-sm font-medium">Cerrar sesión</span>
                 </button>

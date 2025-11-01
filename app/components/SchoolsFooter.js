@@ -10,7 +10,7 @@ import {
 
 export default function SchoolsFooter() {
   return (
-    <footer className="relative bg-[#13161d] border-t border-white/5">
+    <footer className="relative bg-surface-3 border-t border-white/5">
       {/* Sección principal del footer */}
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12 sm:py-16">
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8 lg:gap-12">
@@ -20,7 +20,7 @@ export default function SchoolsFooter() {
               <div className="w-10 h-10 bg-primary rounded-lg flex items-center justify-center">
                 <Box size={20} className="text-white" />
               </div>
-              <span className="text-white font-bold text-xl">Platzi</span>
+              <span className="text-white font-bold text-xl">Kodemy</span>
             </Link>
             <p className="text-gray-400 text-sm leading-relaxed mb-6">
               La escuela de tecnología de Latinoamérica. Aprende las habilidades
@@ -95,7 +95,7 @@ export default function SchoolsFooter() {
                   href="/empresas"
                   className="text-gray-400 hover:text-primary text-sm transition-colors"
                 >
-                  Platzi para empresas
+                  Kodemy para empresas
                 </Link>
               </li>
               <li>
@@ -212,7 +212,7 @@ export default function SchoolsFooter() {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-6">
         <div className="flex flex-col sm:flex-row justify-between items-center gap-4">
           <p className="text-gray-500 text-sm text-center sm:text-left">
-            © {new Date().getFullYear()} Platzi. Todos los derechos reservados.
+            © {new Date().getFullYear()} Kodemy. Todos los derechos reservados.
           </p>
           <div className="flex items-center gap-6">
             <Link

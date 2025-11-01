@@ -14,7 +14,7 @@ export default function CoursePlaylist({
       ${isVisible ? "translate-x-0" : "translate-x-full"}
       fixed lg:relative inset-y-0 right-0 z-40
       w-full sm:w-96 
-      bg-[#151515] 
+      bg-surface-4 
       flex flex-col overflow-hidden
       transition-transform duration-300 ease-in-out
       lg:translate-x-0
@@ -38,7 +38,7 @@ export default function CoursePlaylist({
             {/* Header de sección */}
             <div className="px-4 sm:px-6 py-3 sm:py-4 border-b border-gray-800">
               <div className="flex items-center gap-3">
-                <div className="w-8 h-8 bg-[#0ae98a] rounded-full flex items-center justify-center flex-shrink-0">
+                <div className="w-8 h-8 bg-primary rounded-full flex items-center justify-center flex-shrink-0">
                   <CheckCircle2 size={18} className="text-black" />
                 </div>
                 <h3 className="text-white text-sm font-medium">
@@ -54,8 +54,8 @@ export default function CoursePlaylist({
                 onClick={() => onLessonClick && onLessonClick(lesson.videoId)}
                 className={`
                   w-full px-4 sm:px-6 py-3 sm:py-4 flex items-start gap-3 
-                  hover:bg-[#1a1a1a] transition-colors border-b border-gray-800/50 text-left cursor-pointer
-                  ${currentVideoId === lesson.videoId ? "bg-[#1a1a1a]" : ""}
+                  hover:bg-surface-2 transition-colors border-b border-gray-800/50 text-left cursor-pointer
+                  ${currentVideoId === lesson.videoId ? "bg-surface-2" : ""}
                 `}
               >
                 <div className="relative flex-shrink-0">
@@ -74,8 +74,8 @@ export default function CoursePlaylist({
                     />
                   </div>
                   {currentVideoId === lesson.videoId && (
-                    <div className="absolute inset-0 bg-[#0ae98a]/20 rounded flex items-center justify-center">
-                      <div className="w-6 h-6 sm:w-8 sm:h-8 bg-[#0ae98a] rounded-full flex items-center justify-center">
+                    <div className="absolute inset-0 bg-primary/20 rounded flex items-center justify-center">
+                      <div className="w-6 h-6 sm:w-8 sm:h-8 bg-primary rounded-full flex items-center justify-center">
                         <Play size={12} className="text-black ml-0.5" />
                       </div>
                     </div>
@@ -127,9 +127,9 @@ export default function CoursePlaylist({
       </div>
 
       {/* Footer con botones de navegación */}
-      <div className="absolute bottom-0 left-0 right-0 bg-[#0a0a0a] border-t border-gray-800 p-4">
+      <div className="absolute bottom-0 left-0 right-0 bg-surface-1 border-t border-gray-800 p-4">
         <div className="flex items-center gap-3">
-          <button className="flex-1 flex items-center justify-center gap-2 bg-[#1a1a1a] hover:bg-[#252525] text-white py-3 rounded-lg text-sm font-medium transition-colors border border-gray-700 cursor-pointer">
+          <button className="flex-1 flex items-center justify-center gap-2 bg-surface-2 hover:bg-muted-surface text-white py-3 rounded-lg text-sm font-medium transition-colors border border-gray-700 cursor-pointer">
             <ChevronLeft size={18} />
             <span>Anterior</span>
           </button>

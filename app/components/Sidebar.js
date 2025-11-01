@@ -3,11 +3,11 @@ import { Home, Grid3x3, BookOpen, Settings, Bell, Video } from "lucide-react";
 
 export default function Sidebar() {
   return (
-    <aside className="hidden lg:flex w-16 bg-[#0a0a0a] flex-col items-center py-4 gap-6">
+    <aside className="hidden lg:flex w-16 bg-surface-1 flex-col items-center py-4 gap-6">
       {/* Logo */}
       <Link
         href="/"
-        className="w-10 h-10 bg-[#0ae98a] rounded-lg flex items-center justify-center cursor-pointer hover:bg-[#09d47d] transition-colors"
+        className="w-10 h-10 bg-primary rounded-lg flex items-center justify-center cursor-pointer hover:bg-primary/90 transition-colors"
       >
         <div className="w-6 h-6 border-2 border-white rounded transform rotate-45"></div>
       </Link>

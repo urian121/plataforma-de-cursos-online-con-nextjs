@@ -4,7 +4,7 @@ import SchoolsFooter from "./components/SchoolsFooter";
 
 export default function Home() {
   return (
-    <div className="min-h-screen bg-[#1e2229]">
+    <div className="min-h-screen bg-page">
       <Navbar />
       <Hero />
       <SchoolsFooter />

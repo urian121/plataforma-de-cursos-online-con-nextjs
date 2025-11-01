@@ -1,25 +1,24 @@
 "use client";
 
 import { useState } from "react";
-import { Search, Box, Menu, X } from "lucide-react";
+import { Search, Menu, X } from "lucide-react";
 import Link from "next/link";
 
 export default function Navbar() {
   const [showMobileMenu, setShowMobileMenu] = useState(false);
 
   return (
-    <nav className="fixed top-0 left-0 right-0 z-50 bg-[#13161c]/95 backdrop-blur-sm border-b border-white/5">
+    <nav className="fixed top-0 left-0 right-0 z-50 bg-surface-3/95 backdrop-blur-sm border-b border-white/5">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex items-center justify-between h-16 md:h-20">
           {/* Logo */}
           <div className="flex items-center gap-6 lg:gap-8">
             <Link href="/" className="flex items-center gap-2">
-              <div className="w-8 h-8 bg-primary rounded-md flex items-center justify-center">
-                <Box size={20} className="text-white" />
-              </div>
-              <span className="text-white font-bold text-xl hidden sm:block">
-                Platzi
-              </span>
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 700 200" width="300" height="100" role="img" aria-label="Kodemy logo">
+                <text x="50" y="130" fontFamily="Inter, Roboto, Arial, sans-serif" fontWeight="700" fontSize="72" fill="#ffffff" letterSpacing="-2">
+                  <tspan>&lt;</tspan><tspan fill="#0ae98a" fontSize="78">K</tspan><tspan>odemy</tspan><tspan fill="#0ae98a">/&gt;</tspan>
+                </text>
+              </svg>
             </Link>
 
             {/* Search bar - desktop */}
@@ -28,7 +27,7 @@ export default function Navbar() {
               <input
                 type="text"
                 placeholder="¿Qué quieres aprender?"
-                className="bg-[#1a1e26] text-white placeholder-gray-400 pl-10 pr-4 py-2 rounded-lg w-64 lg:w-80 border border-white/10 focus:outline-none focus:border-primary transition-colors text-sm"
+                className="bg-surface-2 text-white placeholder-gray-400 pl-10 pr-4 py-2 rounded-lg w-64 lg:w-80 border border-white/10 focus:outline-none focus:border-primary transition-colors text-sm"
               />
             </div>
           </div>
@@ -81,14 +80,14 @@ export default function Navbar() {
             <input
               type="text"
               placeholder="¿Qué quieres aprender?"
-              className="bg-[#1a1e26] text-white placeholder-gray-400 pl-10 pr-4 py-2 rounded-lg w-full border border-white/10 focus:outline-none focus:border-primary transition-colors text-sm"
+              className="bg-surface-2 text-white placeholder-gray-400 pl-10 pr-4 py-2 rounded-lg w-full border border-white/10 focus:outline-none focus:border-primary transition-colors text-sm"
             />
           </div>
         </div>
 
         {/* Mobile menu dropdown */}
         {showMobileMenu && (
-          <div className="lg:hidden absolute top-full left-0 right-0 bg-[#13161c] border-t border-white/5 shadow-xl">
+          <div className="lg:hidden absolute top-full left-0 right-0 bg-surface-3 border-t border-white/5 shadow-xl">
             <div className="px-4 py-6 space-y-4">
               {/* Links */}
               <Link

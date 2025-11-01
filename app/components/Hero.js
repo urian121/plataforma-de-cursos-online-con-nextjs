@@ -50,7 +50,7 @@ export default function Hero() {
           <p className="text-base sm:text-lg md:text-xl text-gray-300 mb-12 sm:mb-16 px-4 max-w-3xl mx-auto">
             Más de 6 millones de estudiantes y más
             <br className="hidden sm:block" />
-            de 4,000 empresas aprenden en Platzi
+            de 4,000 empresas aprenden en Kodemy
           </p>
         </div>
       </div>

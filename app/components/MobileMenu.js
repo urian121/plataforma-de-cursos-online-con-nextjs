@@ -7,7 +7,7 @@ export default function MobileMenu({ isOpen, onClose }) {
   return (
     <div className="fixed inset-0 bg-black/80 z-50 lg:hidden" onClick={onClose}>
       <aside
-        className="w-64 h-full bg-[#1a1a1a] border-r border-gray-800 p-6"
+        className="w-64 h-full bg-surface-2 border-r border-gray-800 p-6"
         onClick={(e) => e.stopPropagation()}
       >
         {/* Header */}
@@ -15,7 +15,7 @@ export default function MobileMenu({ isOpen, onClose }) {
           <Link
             href="/"
             onClick={onClose}
-            className="w-10 h-10 bg-[#0ae98a] rounded-lg flex items-center justify-center cursor-pointer hover:bg-[#09d47d] transition-colors"
+            className="w-10 h-10 bg-primary rounded-lg flex items-center justify-center cursor-pointer hover:bg-primary/90 transition-colors"
           >
             <div className="w-6 h-6 border-2 border-white rounded transform rotate-45"></div>
           </Link>

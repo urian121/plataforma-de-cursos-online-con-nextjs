@@ -99,8 +99,8 @@ export default function VideoPlayer({
             ></div>
 
             {/* Círculos decorativos */}
-            <div className="absolute top-[15%] right-[25%] w-20 h-20 sm:w-32 sm:h-32 bg-[#9acd32] rounded-full blur-3xl opacity-80"></div>
-            <div className="absolute top-[25%] right-[15%] w-16 h-16 sm:w-24 sm:h-24 bg-[#7cfc00] rounded-full blur-2xl opacity-70"></div>
+            <div className="absolute top-[15%] right-[25%] w-20 h-20 sm:w-32 sm:h-32 bg-accent-1 rounded-full blur-3xl opacity-80"></div>
+            <div className="absolute top-[25%] right-[15%] w-16 h-16 sm:w-24 sm:h-24 bg-accent-2 rounded-full blur-2xl opacity-70"></div>
 
             {/* Mensaje */}
             <div className="absolute inset-0 flex items-center justify-center">
@@ -114,11 +114,11 @@ export default function VideoPlayer({
       </div>
 
       {/* Sección de comentarios/preguntas */}
-      <div className="bg-[#1a1a1a] border-t border-gray-800 overflow-hidden flex flex-col">
+      <div className="bg-surface-2 border-t border-gray-800 overflow-hidden flex flex-col">
         {/* Header con botón toggle */}
         <button
           onClick={() => setShowComments(!showComments)}
-          className="px-3 sm:px-4 py-3 border-b border-gray-800 flex items-center justify-between hover:bg-[#252525] transition-colors cursor-pointer"
+          className="px-3 sm:px-4 py-3 border-b border-gray-800/20 flex items-center justify-between hover:bg-muted-surface transition-colors cursor-pointer"
         >
           <h3 className="text-white text-sm font-semibold">
             Preguntas y comentarios ({comentarios.length})
@@ -177,14 +177,14 @@ export default function VideoPlayer({
       </div>
 
       {/* Input de preguntas */}
-      <div className="bg-[#1a1a1a] border-t border-gray-800 p-3 sm:p-4">
+      <div className="bg-surface-2 border-t border-gray-800 p-3 sm:p-4">
         <div className="flex items-center gap-2 sm:gap-3">
           <input
             type="text"
             placeholder="¿Tienes preguntas sobre la clase?"
-            className="flex-1 bg-[#0a0a0a] border border-gray-700 rounded-lg px-3 sm:px-4 py-2 sm:py-3 text-xs sm:text-sm text-white placeholder-gray-500 focus:outline-none focus:border-[#0ae98a] transition-colors"
+            className="flex-1 bg-surface-1 border border-gray-700 rounded-lg px-3 sm:px-4 py-2 sm:py-3 text-xs sm:text-sm text-white placeholder-gray-500 focus:outline-none focus:border-primary transition-colors"
           />
-          <button className="bg-[#0ae98a] hover:bg-[#09d47d] text-black px-4 sm:px-6 py-2 sm:py-3 rounded-lg text-xs sm:text-sm font-medium transition-colors flex-shrink-0 cursor-pointer">
+          <button className="bg-primary hover:bg-primary/90 text-black px-4 sm:px-6 py-2 sm:py-3 rounded-lg text-xs sm:text-sm font-medium transition-colors flex-shrink-0 cursor-pointer">
             Preguntar
           </button>
         </div>

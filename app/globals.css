@@ -4,12 +4,31 @@
   --background: #0a0a0a;
   --foreground: #ededed;
   --primary: #0ae98a;
+  /* Paleta extendida para superficies y páginas */
+  --surface-1: #0a0a0a; /* contenedores oscuros */
+  --surface-2: #1a1a1a; /* paneles/inputs */
+  --surface-3: #13161c; /* headers/nav */
+  --surface-4: #151515; /* sidebars/playlist */
+  --muted-surface: #252525; /* hover sutil */
+  --page: #1e2229; /* fondo de páginas */
+  /* Acentos decorativos */
+  --accent-1: #9acd32; /* limegreen suave */
+  --accent-2: #7cfc00; /* lawn green */
 }
 
 @theme inline {
   --color-background: var(--background);
   --color-foreground: var(--foreground);
   --color-primary: var(--primary);
+  /* Tokens de color para Tailwind */
+  --color-surface-1: var(--surface-1);
+  --color-surface-2: var(--surface-2);
+  --color-surface-3: var(--surface-3);
+  --color-surface-4: var(--surface-4);
+  --color-muted-surface: var(--muted-surface);
+  --color-page: var(--page);
+  --color-accent-1: var(--accent-1);
+  --color-accent-2: var(--accent-2);
   --font-sans: var(--font-geist-sans);
   --font-mono: var(--font-geist-mono);
 }
