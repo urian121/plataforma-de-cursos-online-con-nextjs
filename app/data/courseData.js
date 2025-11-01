@@ -1,6 +1,3 @@
-// Datos del curso con videos reales de YouTube
-// IMPORTANTE: Estos son videos de ejemplo. Reemplázalos con tus propios videos.
-// Para obtener los IDs de tu playlist, usa el script: node scripts/getPlaylistVideos.js
 
 export const courseData = {
   title: "Curso Completo de Marca Personal",
@@ -42,13 +39,8 @@ export const courseData = {
           completed: false,
           videoId: "9No-FiEInLA", // Video de prueba - Reemplaza con tu video
           thumbnail: `https://img.youtube.com/vi/9No-FiEInLA/mqdefault.jpg`
-        }
-      ]
-    },
-    {
-      name: "Estrategia Digital",
-      lessons: [
-        {
+        },
+                {
           id: 5,
           title: "Presencia en Redes Sociales",
           duration: "14:20",
@@ -71,12 +63,7 @@ export const courseData = {
           completed: false,
           videoId: "kxopViU98Xo", // Video de prueba - Reemplaza con tu video
           thumbnail: `https://img.youtube.com/vi/kxopViU98Xo/mqdefault.jpg`
-        }
-      ]
-    },
-    {
-      name: "Crecimiento y Monetización",
-      lessons: [
+        },
         {
           id: 8,
           title: "Estrategias de Crecimiento Orgánico",
@@ -87,14 +74,6 @@ export const courseData = {
         },
         {
           id: 9,
-          title: "Monetiza tu Marca Personal",
-          duration: "22:40",
-          completed: false,
-          videoId: "gCzkaGtZAc4", // Video de prueba - Reemplaza con tu video
-          thumbnail: `https://img.youtube.com/vi/gCzkaGtZAc4/mqdefault.jpg`
-        },
-        {
-          id: 10,
           title: "Construcción de Comunidad",
           duration: "17:30",
           completed: false,
@@ -102,7 +81,7 @@ export const courseData = {
           thumbnail: `https://img.youtube.com/vi/RBSGKlAvoiM/mqdefault.jpg`
         }
       ]
-    }
+    },
   ]
 };
 
